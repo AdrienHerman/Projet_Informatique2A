@@ -1,0 +1,71 @@
+/* Classes */
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    color: rgb(105, 105, 105);
+}
+
+.coteacote{
+    display: flex;
+}
+
+/* Propriétés de l'en-tête */
+header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: rgb(238, 238, 238);
+    background-color: rgb(56, 56, 56);
+}
+
+header table {
+    border-collapse: collapse;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+header a:link { 
+    text-decoration: none;
+}
+
+header a {
+    color: rgb(238, 238, 238);
+}
+
+header a:hover {
+    color: rgb(70, 70, 70);
+}
+
+#menu {
+    background-color: rgb(125, 199, 107);
+    text-align: center;
+}
+
+#nompage {
+    text-align: right;
+}
+
+#iduser {
+    color:rgb(253, 114, 114);
+}
+
+.coteacote h4 {
+    padding-left: 5px;
+}
+
+/* Propriétés de la page */
+body {
+    margin: 0px;
+}
+
+/* Propriétés du pied de page */
+header{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+}
