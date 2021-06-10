@@ -4,13 +4,15 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
-        <script>var mail; var mdp;</script>
+        <script src="cookie.js"></script>
+        <script src="xmlhttprequest.js"></script>
+        <script src="serveur/cobd.js"></script>
         <script src="co.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <title>Accueil</title>
     </head>
 
-    <body onload="console.log(mail, mdp);">
+    <body onload="console.log(getCookie('mail'), getCookie('mdp'));">
         <header>
             <table>
                 <tr>
