@@ -4,18 +4,17 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
-        <script>var mail; var mdp;</script>
         <script src="co.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <title>Accueil</title>
     </head>
 
-    <body onload="console.log(mail, mdp);">
+    <body>
         <header>
             <table>
                 <tr>
                     <td><h1>Projet informatique 2A</h1></td>
-                    <td id="nompage"><h1>Accueil</h1></td>
+                    <td id="nompage"><h1>Se connecter</h1></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -42,7 +41,23 @@
         </header>
 
         <div class="page">
-
+            <div class="center">
+                <h1>Connexion à un compte utilisateur</h1>
+                <table style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <td><h4>E-Mail:</h4></td>
+                        <td><input type="email" id="mail"></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Mot de passe:</h4></td>
+                        <td><input type="password" id="mdp"></td>
+                    </tr>
+                    <tr>
+                        <td><button id="co" onclick="connexion();">Se connecter</button></td>
+                        <td><button id="mdpoublie">Mot de passe oublié</button></td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <footer>
