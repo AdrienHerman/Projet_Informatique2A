@@ -4,16 +4,34 @@ function connexionCompteUtil() {
 
     if (mail != '' && mdp != '') {
         var xhr = getXMLHttpRequest();
-
-        xhr.onreadystatechange = function(statut_co) {
+        xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
                 var response_xml = xhr.responseText;
     
-                if (response_xml == 'true') {
-                    update(true);
-                } else {
-                    alert('Impossible de se connecter à la base de données!');
-                    update(false);
+                switch (response_xml) {
+                    case "true":                        
+                        var xhr_getUser = getXMLHttpRequest();
+                        xhr_getUser.onreadystatechange = function() {
+                            if (xhr_getUser.readyState == 4 && (xhr_getUser.status == 200 || xhr_getUser.status == 0)) {
+                                var response_xml = xhr_getUser.responseText.split(';');
+                                
+                                var nomprenom = '' + response_xml[1] + ' ' + response_xml[0];
+                                updateCookie(mail, mdp, true, nomprenom);
+                                window.location.href = 'main.html';
+                            }
+                        }
+
+                        xhr_getUser.open('GET', 'serveur/getUser.php?mail=' + mail, true);
+                        xhr_getUser.send(null);
+
+                        break;
+                    
+                    case "false":
+                        break;
+                    
+                    case "failed":
+                        alert("Impossible de se connecter à la base de données!");
+                        break;
                 }
             }
         }
