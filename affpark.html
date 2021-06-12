@@ -10,17 +10,19 @@
         <script src="serveur/cobd.js"></script>
         <script src="co.js"></script>
         <script src="coapi.js"></script>
+        <script src="map.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <title>Accueil</title>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <title>Afficher tous les parkings</title>
         <link rel="icon" type="image/png" href="favicon.png">
     </head>
 
-    <body onload="update(); coOpenData('data.json');">
+    <body onload="update();">
         <header>
             <table>
                 <tr>
                     <td><h1>Projet informatique 2A</h1></td>
-                    <td id="nompage"><h1>Accueil</h1></td>
+                    <td id="nompage"><h1>Afficher tous les parkings</h1></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -49,11 +51,17 @@
         </header>
 
         <div class="page">
-            
+            <div class="center">
+                <h1>Parkings disponibles dans la métropole de Lille</h1>
+                <table id="parkdispo" class="arrondi"></table>
+                <script>coOpenData('data.json');</script>
+            </div>
 
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGPU5BvaKpMG1p67mq3ZGemPDB9vCx38Y&callback=initMap&libraries=&v=weekly" async></script>
         </div>
 
-        <footer>
+        <footer style="height: 100px;">
 
         </footer>
     </body>

@@ -6,12 +6,33 @@
 .page {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 18px;
     color: rgb(105, 105, 105);
 }
 
-.coteacote{
+.coteacote {
     display: flex;
+}
+
+.entetetable {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.vert {
+    color: rgb(125, 199, 107);
+}
+
+.rouge {
+    color:rgb(253, 114, 114);
+}
+
+/* Maps */
+.googleMap {
+    width: 80%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Propriétés de l'en-tête */
@@ -58,9 +79,35 @@ header a:hover {
     padding-left: 5px;
 }
 
+#parkdispo {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+#parkdispo tr td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#h1 {
+    font-size: 25px;
+}
+
+#map {
+    height:500px;
+    width: 60%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Propriétés de la page */
+html,
 body {
-    margin: 0px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Propriétés du pied de page */

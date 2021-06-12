@@ -16,7 +16,7 @@ function connexion() {
         // Il s'agit plutôt d'inclure une petite partie de cybersécurité que nous avons vu en cours.
 
         // Création du cookie
-        updateCookie(mail, mdp);
+        updateCookie(mail, mdp, false, 'Déconnecté', getCookie('moncompte'));
 
         connexionCompteUtil();
     } else {

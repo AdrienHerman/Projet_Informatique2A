@@ -1,6 +1,7 @@
 function connexionCompteUtil() {
     var mail = getCookie('mail');
     var mdp = getCookie('mdp');
+    var moncompte = getCookie('moncompte');
 
     if (mail != '' && mdp != '') {
         var xhr = getXMLHttpRequest();
@@ -9,15 +10,20 @@ function connexionCompteUtil() {
                 var response_xml = xhr.responseText;
     
                 switch (response_xml) {
-                    case "true":                        
+                    case 'true':                        
                         var xhr_getUser = getXMLHttpRequest();
                         xhr_getUser.onreadystatechange = function() {
                             if (xhr_getUser.readyState == 4 && (xhr_getUser.status == 200 || xhr_getUser.status == 0)) {
                                 var response_xml = xhr_getUser.responseText.split(';');
                                 
                                 var nomprenom = '' + response_xml[1] + ' ' + response_xml[0];
-                                updateCookie(mail, mdp, true, nomprenom);
-                                window.location.href = 'main.html';
+                                updateCookie(mail, mdp, true, nomprenom, moncompte);
+
+                                if (moncompte == 'true') {
+                                    window.location.href = 'moncompte.html';
+                                } else {
+                                    window.location.href = 'main.html';
+                                }
                             }
                         }
 
@@ -26,11 +32,15 @@ function connexionCompteUtil() {
 
                         break;
                     
-                    case "false":
+                    case 'false':
+                        $('#mail').css('border', '1px solid rgb(253, 114, 114)');
+                        $('#mdp').css('border', '1px solid rgb(253, 114, 114)');
+                        $('#erreurmdp').html('Mot de passe ou e-mail incorrect !');
+
                         break;
                     
-                    case "failed":
-                        alert("Impossible de se connecter à la base de données!");
+                    case 'failed':
+                        alert('Impossible de se connecter à la base de données!');
                         break;
                 }
             }
