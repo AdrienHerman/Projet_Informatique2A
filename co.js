@@ -11,7 +11,7 @@ function connexion() {
 
     if (mail != '' && mdp != '') {
         // Cryptage du mot de passe
-        mdpCrypte();
+        mdp = mdpCrypte(mdp);
         // Remarque: Ici le cryptage n'a aucun intérêt puisque la clé est cachée dans le code....
         // Il s'agit plutôt d'inclure une petite partie de cybersécurité que nous avons vu en cours.
 
@@ -53,7 +53,7 @@ function genererVigenere() {
     return array;
 }
 
-function mdpCrypte() {
+function mdpCrypte(mdp) {
     // Crypter un mot de passe par la méthode de Vigenère
     var mdp_crypte = '';
     var j = 0;
@@ -81,7 +81,7 @@ function mdpCrypte() {
         }
     }
 
-    mdp = mdp_crypte;
+    return mdp_crypte;
 }
 
 function mdpDecrypte() {
@@ -123,4 +123,14 @@ function mdpDecrypte() {
     }
 
     mdp = mdp_decrypte;
+}
+
+function mdpOublie() {
+    var mail = $('#mail').val();
+
+    if (mail != '') {
+        setCookie('mail', mail);
+    }
+
+    window.location.href = 'mdpoublie.html';
 }

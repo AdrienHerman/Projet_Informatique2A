@@ -9,6 +9,11 @@ CREATE TABLE Personne(
     mail            VARCHAR(50) NOT NULL,
     mdp             VARCHAR(50) NOT NULL,
     qsecrete        VARCHAR(50) NOT NULL,
+    pref1           VARCHAR(300),
+    pref2           VARCHAR(300),
+    pref3           VARCHAR(300),
+    pref4           VARCHAR(300),
+    pref5           VARCHAR(300),
     PRIMARY KEY(id)
 );
 

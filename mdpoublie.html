@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="cookie.js"></script>
+        <script src="co.js"></script>
+        <script src="updatePage.js"></script>
+        <script src="xmlhttprequest.js"></script>
+        <script src="serveur/cobd.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <title>Mot de passe oublié</title>
+        <link rel="icon" type="image/png" href="favicon.png">
+    </head>
+
+    <body onload="update(true);">
+        <header>
+            <table>
+                <tr>
+                    <td><h1>Projet informatique 2A</h1></td>
+                    <td id="nompage"><h1>Mot de passe oublié</h1></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="nompage">
+                        <div class="coteacote">
+                            <h4>Connecté en tant que :</h4>
+                            <h4 id="iduser"></h4>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="menu">
+                <table>
+                    <tr>
+                        <td><a href="main.html"><h4>Accueil</h4></a></td>
+                        <td><a href="affpark.html"><h4>Afficher tous les parkings</h4></a></td>
+                        <td><a href=""><h4>Nous contacter</h4></a></td>
+                        <td><a href=""><h4>À Propos</h4></a></td>
+                        <td><a href="creer_compte.html"><h4>Créer un compte</h4></a></td>
+                        <td><a href="moncompte.html"><h4>Mon compte</h4></a></td>
+                        <td><a href="connexion.html"><h4>Se connecter</h4></a></td>
+                        <td><a href=""><h4 onclick="updateCookie();">Se déconnecter</h4></a></td>
+                    </tr>
+                </table>
+            </div>
+        </header>
+
+        <div class="page">
+            <div class="center">
+                <h1>Changer le mot de passe utilisateur</h1>
+
+                <form class="centernottext" id="qsecreteform">
+                    <fieldset>
+                        <legend>Veuillez répondre à la question secrète</legend>
+
+                        <table>
+                            <tr>
+                                <td><label for="mail">Votre E-Mail :</label></td>
+                                <td><input type="email" id="mail" name="mail"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="qsecrete">Quel est le nom de jeune fille de votre mère ?</label></td>
+                                <td><input type="text" id="qsecrete" name="qsecrete"></td>
+                            </tr>
+                        </table>
+                        <h4 id="qsecretefausse"></h4>
+                    </fieldset>
+                </form>
+
+                <button onclick="verifierQSecrete();">Vérifier la question secrète</button>
+
+                <form class="centernottext" id="changermdpform">
+                    <fieldset>
+                        <legend>Changer le mot de passe</legend>
+
+                        <table>
+                            <tr>
+                                <td><label for="mdp1">Nouveau mot de passe :</label></td>
+                                <td><input type="password" id="mdp1" name="mdp1"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="mdp2">Confirmez le mot de passe :</label></td>
+                                <td><input type="password" id="mdp2" name="mdp2"></td>
+                            </tr>
+                        </table>
+                        <h4 id="mdpincorrect"></h4>
+                    </fieldset>
+                </form>
+
+                <button onclick="changerMdp();" id="changermdpbutton">Changer le mot de passe</button>
+            </div>
+        </div>
+
+        <div style="height: 150px;"></div>
+
+        <footer>
+
+        </footer>
+    </body>
+</html>

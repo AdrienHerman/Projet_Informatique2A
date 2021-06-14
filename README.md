@@ -5,9 +5,10 @@ Idées:
 À faire:
     - Création de compte
     - Modification de compte
-    - Sauvegarde de 10 destinations favorites
-    - Mot de passe oublié
+    - Sauvegarde de 5 destinations favorites
     - Géolocalisation automatique
     - Click sur un parking pour afficher la position sur la carte
     - Position par défaut de la carte
     - Affichage d'un traget maps?
+    - Actualisation des parking disponibles
+    - Firefox qui refuse de prendre un nouveau css

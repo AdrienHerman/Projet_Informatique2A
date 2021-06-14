@@ -1,10 +1,14 @@
-function update() {
+function update(mdpOublie=false) {
     var nomprenom = getCookie('nomprenom');
 
     if (nomprenom != 'Déconnecté' && nomprenom != '') {
         $('#iduser').html(nomprenom).css('color', 'rgb(125, 199, 107)');
     } else {
         $('#iduser').html('Déconnecté').css('color', 'rgb(253, 114, 114)');
+    }
+
+    if (mdpOublie) {
+        $('#mail').val(getCookie('mail'));
     }
 }
 

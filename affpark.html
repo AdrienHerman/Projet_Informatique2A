@@ -53,8 +53,15 @@
         <div class="page">
             <div class="center">
                 <h1>Parkings disponibles dans la métropole de Lille</h1>
-                <table id="parkdispo" class="arrondi"></table>
-                <script>coOpenData('data.json');</script>
+                <table id="parkdispo"></table>
+                <table id="heureactu">
+                    <tr>
+                        <td><button id="heureactubutton" onclick="coOpenData();">Actualiser les parkings</button></td>
+                        <td><h4>Dernière actualisation :</h4></td>
+                        <td><h4 id="heureactuh4"></h4></td>
+                    </tr>
+                </table>
+                <script>coOpenData();</script>
             </div>
 
             <div id="map"></div>
