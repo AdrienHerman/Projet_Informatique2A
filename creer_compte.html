@@ -4,32 +4,23 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
-        <script src="cookie.js"></script>
-        <script src="updatePage.js"></script>
-        <script src="xmlhttprequest.js"></script>
-        <script src="serveur/cobd.js"></script>
-        <script src="co.js"></script>
-        <script src="coapi.js"></script>
-        <script src="map.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        <title>Afficher tous les parkings</title>
-        <link rel="icon" type="image/png" href="favicon.png">
+        <title>Créer un compte</title>
     </head>
 
-    <body onload="update();">
+    <body>
         <header>
             <table>
                 <tr>
                     <td><h1>Projet informatique 2A</h1></td>
-                    <td id="nompage"><h1>Afficher tous les parkings</h1></td>
+                    <td id="nompage"><h1>Accueil</h1></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td id="nompage">
                         <div class="coteacote">
                             <h4>Connecté en tant que :</h4>
-                            <h4 id="iduser"></h4>
+                            <h4 id="iduser">Déconnecté</h4>
                         </div>
                     </td>
                 </tr>
@@ -52,24 +43,40 @@
 
         <div class="page">
             <div class="center">
-                <h1>Parkings disponibles dans la métropole de Lille</h1>
-                <table id="parkdispo"></table>
-                <table id="heureactu">
+                <h1> Créer un compte</h1>
+                <table id="creercompte" style="margin-left: auto; margin-right:auto;">
                     <tr>
-                        <td><button id="heureactubutton" onclick="coOpenData();">Actualiser les parkings</button></td>
-                        <td><h4>Dernière actualisation :</h4></td>
-                        <td><h4 id="heureactuh4"></h4></td>
+                        <td><h4>Nom de famille :</h4></td>
+                        <td><input type="text" id="nom"></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Prénom :</label></h4></td>
+                        <td><input type="text" id="prenom"></td>
+                    </tr>
+                    <tr>
+                        <td><h4>E-Mail :</h4></td>
+                        <td><input type="email" id="mail"></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Mot de passe :</h4></td>
+                        <td><input type="password" id="mdp"></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Question secrète :</h4></td>
+                        <td>
+                            <input type="text" id="qsecrete" placeholder="Nom de jeune fille de votre mère">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h4>Réponse à la question secrète:</h4></td>
+                        <td><input type="text" id="rsecrete" name="rsecrete"></td>
                     </tr>
                 </table>
-                <script>coOpenData();</script>
+
+                <button id="creer">Créer un compte</button>
             </div>
 
-            <div id="map"></div>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGPU5BvaKpMG1p67mq3ZGemPDB9vCx38Y&callback=initMap&libraries=&v=weekly" async></script>
+            <div style="height: 150px;"></div>
         </div>
-
-        <footer style="height: 100px;">
-
-        </footer>
     </body>
 </html>

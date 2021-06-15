@@ -5,6 +5,7 @@ var coordinates = [];
 var max = [];
 var adresse = [];
 var heureactu = '';
+var command = '';
 
 function coOpenData(url='https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat') {
     $.getJSON(url, function(data, status, xhr) {
@@ -32,8 +33,13 @@ function coOpenData(url='https://opendata.lillemetropole.fr/api/records/1.0/sear
 
 function printData() {
     if (window.location.href == 'http://localhost/affpark.html') {
-        var command = '<tr><td class="entetetable">État du parking</td><td class="entetetable">Ville</td><td class="entetetable">Places disponibles</td><td class="entetetable">Adresse</td></tr>';
-        
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        console.log(command);
+        command = '<tr><td class="entetetable">État du parking</td><td class="entetetable">Ville</td><td class="entetetable">Places disponibles</td><td class="entetetable">Adresse</td></tr>';
+        console.log(command);
+        $('#parkdispo').html('');
+        console.log($('#parkdispo').html());
+
         for (var i=0; i<etat.length; i++) {
             if (etat[i] == 'FERME' || etat[i] == 'COMPLET') {
                 command += '<tr><td class="rouge">' + etat[i] + '</td><td>' + ville[i] + '</td><td>' + dispo[i] + ' / ' + max[i] + '</td><td>' + adresse[i] + '</td></tr>';
@@ -45,7 +51,6 @@ function printData() {
         }
         
         $('#heureactuh4').html(heureactu[0] + 'h' + heureactu[1]);
-        $('#parkdispo').html('');
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         $('#parkdispo').html(command);
     }

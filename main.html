@@ -10,6 +10,7 @@
         <script src="serveur/cobd.js"></script>
         <script src="co.js"></script>
         <script src="coapi.js"></script>
+        <script src="geolocalisation.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <title>Accueil</title>
         <link rel="icon" type="image/png" href="favicon.png">
@@ -37,8 +38,8 @@
                     <tr>
                         <td><a href="main.html"><h4>Accueil</h4></a></td>
                         <td><a href="affpark.html"><h4>Afficher tous les parkings</h4></a></td>
-                        <td><a href=""><h4>Nous contacter</h4></a></td>
-                        <td><a href=""><h4>À Propos</h4></a></td>
+                        <td><a href="nous_contacter.html"><h4>Nous contacter</h4></a></td>
+                        <td><a href="apropos.html"><h4>À Propos</h4></a></td>
                         <td><a href="creer_compte.html"><h4>Créer un compte</h4></a></td>
                         <td><a href="moncompte.html"><h4>Mon compte</h4></a></td>
                         <td><a href="connexion.html"><h4>Se connecter</h4></a></td>
@@ -49,8 +50,11 @@
         </header>
 
         <div class="page">
-            
-
+            <div class="center">
+                <h1>Parkings les plus proches de votre position</h1>
+                <table id="parkplusproche"></table>
+                <script>geolocalisation();</script>
+            </div>
         </div>
 
         <footer>
