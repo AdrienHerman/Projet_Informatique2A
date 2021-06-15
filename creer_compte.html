@@ -5,6 +5,10 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="serveur/cobd.js"></script>
+        <script src="co.js"></script>
+        <script src="xmlhttprequest.js"></script>
+        <script src="creercompte.js"></script>
         <title>Créer un compte</title>
     </head>
 
@@ -13,7 +17,7 @@
             <table>
                 <tr>
                     <td><h1>Projet informatique 2A</h1></td>
-                    <td id="nompage"><h1>Accueil</h1></td>
+                    <td id="nompage"><h1>Créer un compte</h1></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -44,7 +48,10 @@
         <div class="page">
             <div class="center">
                 <h1> Créer un compte</h1>
-                <table id="creercompte" style="margin-left: auto; margin-right:auto;">
+
+                <h3>Informations du compte</h2>
+
+                <table class="creercompte">
                     <tr>
                         <td><h4>Nom de famille :</h4></td>
                         <td><input type="text" id="nom"></td>
@@ -61,19 +68,20 @@
                         <td><h4>Mot de passe :</h4></td>
                         <td><input type="password" id="mdp"></td>
                     </tr>
+                </table>
+
+                <h3>Question secrète</h4>
+
+                <table class="creercompte">
                     <tr>
-                        <td><h4>Question secrète :</h4></td>
-                        <td>
-                            <input type="text" id="qsecrete" placeholder="Nom de jeune fille de votre mère">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><h4>Réponse à la question secrète:</h4></td>
-                        <td><input type="text" id="rsecrete" name="rsecrete"></td>
+                        <td><h4>Quel est le nom de jeune fille de votre mère:</h4></td>
+                        <td><input type="text" id="qsecrete"></td>
                     </tr>
                 </table>
 
-                <button id="creer">Créer un compte</button>
+                <button id="creer" onclick="recupInfoCompte();">Créer un compte</button>
+            
+                <h4 id="erreur">Tous les champs doivent être complétés!</h4>
             </div>
 
             <div style="height: 150px;"></div>

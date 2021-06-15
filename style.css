@@ -32,10 +32,10 @@
     color:rgb(253, 114, 114);
 }
 
-/* Maps */
-.googleMap {
-    width: 80%;
-    height: 50%;
+/* Carte */
+#map {
+    width: 700px;
+    height: 500px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -128,7 +128,12 @@ body {
     visibility: hidden;
 }
 
-#creercompte input {
+.creercompte {
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.creercompte input {
     width: 300px;
 }
 
@@ -140,6 +145,11 @@ body {
 #parkplusproche {
     margin-left: auto;
     margin-right: auto;
+}
+
+#erreur {
+    color: rgb(253, 114, 114);
+    visibility: hidden;
 }
 
 /* Propriétés du pied de page */

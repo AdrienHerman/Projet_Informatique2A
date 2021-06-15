@@ -121,3 +121,44 @@ function changerMdp() {
         $('#mdpincorrect').html('Mot de passe incorrect!').css('color', 'rgb(253, 114, 114)');
     }
 }
+
+function verifierExistanceUtil(mail) {
+    var xhr = getXMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            var response_xml = xhr.responseText;
+    
+            switch (response_xml) {
+                case 'true':                        
+                    $('#erreur').html('L\'utilisateur existe d\'éjà!').css('visibility', 'visible');
+                    break;
+                    
+                case 'false':
+                    var xhr_creation = getXMLHttpRequest();
+
+                    xhr_creation.onreadystatechange = function() {
+                        if (xhr_creation.readyState == 4 && (xhr_creation.status == 200 || xhr_creation.status == 0)) {
+                            var response_xml = xhr_creation.responseText;
+
+                            if (response_xml != 'failed') {
+                                window.location.href = 'connexion.html';
+                            } else {
+                                alert('Impossible de se connecter à la base de données!');
+                            }
+                        }
+                    }
+
+                    xhr_creation.open('GET', 'serveur/creationUtil.php?mail=' + mail + '&mdp=' + mdp + '&nom=' + nom + '&prenom=' + prenom + '&qsecrete=' + qsecrete, true);
+                    xhr_creation.send(null);
+                    break;
+                    
+                case 'failed':
+                    alert('Impossible de se connecter à la base de données!');
+                    break;
+            }
+        }
+    }
+    
+    xhr.open('GET', 'serveur/verifExistUtil.php?mail=' + mail, true);
+    xhr.send(null);
+}
