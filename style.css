@@ -32,14 +32,6 @@
     color:rgb(253, 114, 114);
 }
 
-/* Carte */
-#map {
-    width: 700px;
-    height: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* Propriétés de l'en-tête */
 header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

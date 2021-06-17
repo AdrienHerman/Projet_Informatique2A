@@ -8,40 +8,38 @@ function connexionCompteUtil() {
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
                 var response_xml = xhr.responseText;
-    
-                switch (response_xml) {
-                    case 'true':                        
-                        var xhr_getUser = getXMLHttpRequest();
-                        xhr_getUser.onreadystatechange = function() {
-                            if (xhr_getUser.readyState == 4 && (xhr_getUser.status == 200 || xhr_getUser.status == 0)) {
-                                var response_xml = xhr_getUser.responseText.split(';');
-                                
-                                var nomprenom = '' + response_xml[1] + ' ' + response_xml[0];
-                                updateCookie(mail, mdp, true, nomprenom, moncompte);
 
-                                if (moncompte == 'true') {
-                                    window.location.href = 'moncompte.html';
-                                } else {
-                                    window.location.href = 'main.html';
-                                }
+                console.log(response_xml);
+    
+                if (response_xml == 'true') {                        
+                    var xhr_getUser = getXMLHttpRequest();
+                    xhr_getUser.onreadystatechange = function() {
+                        if (xhr_getUser.readyState == 4 && (xhr_getUser.status == 200 || xhr_getUser.status == 0)) {
+                            var response_xml = xhr_getUser.responseText.split(';');
+                                
+                            var nomprenom = '' + response_xml[1] + ' ' + response_xml[0];
+                            updateCookie(mail, mdp, true, nomprenom, moncompte);
+
+                            if (moncompte == 'true') {
+                                setCookie('moncompte', 'false');
+                                window.location.href = 'moncompte.html';
+                            } else {
+                                window.location.href = 'main.html';
                             }
                         }
+                    }
 
-                        xhr_getUser.open('GET', 'serveur/getUser.php?mail=' + mail, true);
-                        xhr_getUser.send(null);
-
-                        break;
+                    xhr_getUser.open('GET', 'serveur/getUser.php?mail=' + mail, true);
+                    xhr_getUser.send(null);
+                }
+                else if (response_xml == 'false') {
+                    $('#mail').css('border', '1px solid rgb(253, 114, 114)');
+                    $('#mdp').css('border', '1px solid rgb(253, 114, 114)');
+                    $('#erreurmdp').html('Mot de passe ou e-mail incorrect !');
+                }
                     
-                    case 'false':
-                        $('#mail').css('border', '1px solid rgb(253, 114, 114)');
-                        $('#mdp').css('border', '1px solid rgb(253, 114, 114)');
-                        $('#erreurmdp').html('Mot de passe ou e-mail incorrect !');
-
-                        break;
-                    
-                    case 'failed':
-                        alert('Impossible de se connecter à la base de données!');
-                        break;
+                else if (response_xml == 'failed') {
+                    alert('Impossible de se connecter à la base de données!');
                 }
             }
         }
@@ -105,7 +103,12 @@ function changerMdp() {
     
                 switch (response_xml) {
                     case 'success':
-                        window.location.href = 'connexion.html';
+                        if (getCookie('moncompte') == 'true') {
+                            window.location.href = 'moncompte.html';
+                            setCookie('moncompte', 'false');
+                        } else {
+                            window.location.href = 'connexion.html';
+                        }
                         break;
                                        
                     case 'failed':
@@ -161,4 +164,111 @@ function verifierExistanceUtil(mail) {
     
     xhr.open('GET', 'serveur/verifExistUtil.php?mail=' + mail, true);
     xhr.send(null);
+}
+
+function changeUtilBd(nom, prenom, mail) {
+    var xhr = getXMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            var response_xml = xhr.responseText;
+    
+            switch (response_xml) {
+                case 'success':
+                    $('#nom').css('border', '1px solid rgb(125, 199, 107)');
+                    $('#prenom').css('border', '1px solid rgb(125, 199, 107)');
+                    $('#utilincorrect').html('Nom et Prénom changés avec succès!').css('color', 'rgb(125, 199, 107)');
+                    setCookie('nomprenom', nom + ' ' + prenom);
+                    update();
+                    break;
+                                       
+                case 'failed':
+                    alert('Impossible de se connecter à la base de données!');
+                    break;
+            }
+        }
+    }
+    
+    xhr.open('GET', 'serveur/changerutil.php?prenom=' + prenom + '&nom=' + nom + '&mail=' + mail, true);
+    xhr.send(null);
+}
+
+function changeMailBd(ancienmail, nouveaumail) {
+    var xhr = getXMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            var response_xml = xhr.responseText;
+    
+            switch (response_xml) {
+                case 'success':
+                    $('#mail1').css('border', '1px solid rgb(125, 199, 107)');
+                    $('#mail2').css('border', '1px solid rgb(125, 199, 107)');
+                    $('#mailincorrect').html('Adresse mail changée avec succès!').css('color', 'rgb(125, 199, 107)');
+                    setCookie('mail', nouveaumail);
+                    break;
+                                       
+                case 'failed':
+                    alert('Impossible de se connecter à la base de données!');
+                    break;
+            }
+        }
+    }
+    
+    xhr.open('GET', 'serveur/changermail.php?ancienmail=' + ancienmail + '&nouveaumail=' + nouveaumail, true);
+    xhr.send(null);
+}
+
+function changeQSecreteBd(mail, qsecrete) {
+    var xhr = getXMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            var response_xml = xhr.responseText;
+    
+            switch (response_xml) {
+                case 'success':
+                    $('#qsecrete1').css('border', '1px solid rgb(125, 199, 107)');
+                    $('#qsecrete2').css('border', '1px solid rgb(125, 199, 107)');
+                    $('#qsecreteincorrect').html('Question secrète changée avec succès!').css('color', 'rgb(125, 199, 107)');
+                    break;
+                                       
+                case 'failed':
+                    alert('Impossible de se connecter à la base de données!');
+                    break;
+            }
+        }
+    }
+    
+    xhr.open('GET', 'serveur/changerqsecrete.php?mail=' + mail + '&qsecrete=' + qsecrete, true);
+    xhr.send(null);
+}
+
+function spprCompte() {
+    var mail = getCookie('mail');
+
+    if (mail != '') {
+        var xhr = getXMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                var response_xml = xhr.responseText;
+        
+                switch (response_xml) {
+                    case 'success':
+                        updateCookie();
+                        setCookie('spprcompte', 'true');
+                        location.reload();
+                        break;
+                                           
+                    case 'failed':
+                        alert('Impossible de se connecter à la base de données!');
+                        break;
+                }
+            }
+        }
+        
+        xhr.open('GET', 'serveur/spprcompte.php?mail=' + mail, true);
+        xhr.send(null);
+    } else {
+        $('#spprcompte').css('border', '1px solid rgb(253, 114, 114)');
+        $('#spprcompteconf').css('border', '1px solid rgb(253, 114, 114)');
+        $('#spprcompteincorrect').html('Vous venez de supprimer votre compte utilisateur!').css('color', 'rgb(253, 114, 114)');
+    }
 }

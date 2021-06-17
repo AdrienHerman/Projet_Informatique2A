@@ -1,15 +1,45 @@
 var maLatitude = .0;
 var maLongitude = .0;
+var pointer = false;
+
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+  
+function success(pos) {
+    maLatitude = pos.coords.latitude;
+    maLongitude = pos.coords.longitude;
+
+    if (pointer) {
+        var lonLat = new OpenLayers.LonLat(maLongitude, maLatitude).transform(
+        new OpenLayers.Projection("EPSG:4326"),
+        map.getProjectionObject()
+        );
+
+        var size = new OpenLayers.Size(21, 40);
+        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+        var icon = new OpenLayers.Icon('http://localhost/img/marker2.png', size, offset);
+
+        var markers = new OpenLayers.Layer.Markers("Markers");
+        map.addLayer(markers);
+        
+        markers.addMarker(new OpenLayers.Marker(lonLat, icon));
+        pointer = false;
+    }
+}
+  
+function error(err) {
+    console.warn(`ERREUR (${err.code}): ${err.message}`);
+}
+
+function meLocaliser() {
+    navigator.geolocation.getCurrentPosition(success, error, options);
+}
 
 function convertRad(input) {
     return (input * 2 * Math.PI) / 360;
-}
-
-function geolocalisation() {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        maLatitude = position.coords.latitude;
-        maLongitude = position.coords.longitude;
-    });
 }
 
 function distance(lat1, lon1, lat2=maLatitude, lon2=maLongitude, unit='K') {
@@ -38,7 +68,7 @@ function affParkPlusProche() {
     var dist = [];
     var command = '<tr><td class="entetetable">État du parking</td><td class="entetetable">Ville</td><td class="entetetable">Places disponibles</td><td class="entetetable">Adresse</td><td class="entetetable">Distance à vol d\'oiseau</td></tr>';
 
-    geolocalisation();
+    meLocaliser();
 
     for (var i=0; i<coordinates.length; i++) {
         dist.push( distance(coordinates[i][1], coordinates[i][0]));
@@ -51,8 +81,6 @@ function affParkPlusProche() {
             if (dist[i] != 0 && dist[i] < min && etat[i] != 'COMPLET' && etat[i] != '.' && etat[i] != 'FERME') {
                 min = dist[i];
                 min_i = i;
-                console.log(etat[i] != '.');
-                console.log(etat[i]);
             }
         }
         command += '<tr><td class="vert">' + etat[min_i] + '</td><td>' + ville[min_i] + '</td><td>' + dispo[min_i] + ' / ' + max[min_i] + '</td><td>' + adresse[min_i] + '</td><td>' + Math.round(min*100)/100 + ' km</td></tr>';
@@ -60,4 +88,25 @@ function affParkPlusProche() {
     }
 
     $('#parkplusproche').html(command);
+}
+
+function addMarkerLonLat(lon=.0, lat=.0, currentpos=false) {
+    if (currentpos) {
+        meLocaliser();
+        pointer = true;
+    } else {
+        var lonLat = new OpenLayers.LonLat(lon, lat).transform(
+        new OpenLayers.Projection("EPSG:4326"),
+        map.getProjectionObject()
+        );
+
+        var size = new OpenLayers.Size(21, 40);
+        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+        var icon = new OpenLayers.Icon('http://localhost/img/marker1.png', size, offset);
+
+        var markers = new OpenLayers.Layer.Markers("Markers");
+        map.addLayer(markers);
+    
+        markers.addMarker(new OpenLayers.Marker(lonLat, icon));
+    }
 }

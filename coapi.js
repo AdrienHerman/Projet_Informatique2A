@@ -4,6 +4,7 @@ var dispo = [];
 var coordinates = [];
 var max = [];
 var adresse = [];
+var id = [];
 var heureactu = '';
 var command = '';
 
@@ -19,6 +20,7 @@ function coOpenData(print=true, calcdist=false, url='https://opendata.lillemetro
                                     });
                                     max.push(item.fields.max);
                                     adresse.push(item.fields.adresse);
+                                    id.push(item.fields.id);
                                     heureactu = (item.record_timestamp);
                                 });
 
@@ -44,6 +46,8 @@ function printData() {
             } else {
                 command += '<tr><td>' + etat[i] + '</td><td>' + ville[i] + '</td><td>' + dispo[i] + ' / ' + max[i] + '</td><td>' + adresse[i] + '</td></tr>';
             }
+
+            addMarkerLonLat(coordinates[i][0], coordinates[i][1]);
         }
         
         $('#heureactuh4').html(heureactu[0] + 'h' + heureactu[1]);

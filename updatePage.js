@@ -1,4 +1,4 @@
-function update(mdpOublie=false) {
+function update(mdpOublie=false, geolocaliser=false) {
     var nomprenom = getCookie('nomprenom');
 
     if (nomprenom != 'Déconnecté' && nomprenom != '') {
@@ -10,12 +10,17 @@ function update(mdpOublie=false) {
     if (mdpOublie) {
         $('#mail').val(getCookie('mail'));
     }
+
+    if (geolocaliser) {
+        meLocaliser();
+    }
 }
 
-function updateCookie(mail='', mdp='', statutco=false, nomprenom='Déconnecté', moncompte=false){
+function updateCookie(mail='', mdp='', statutco=false, nomprenom='Déconnecté', moncompte=false, spprcompte=false){
     setCookie('mail', mail);
     setCookie('mdp', mdp);
     setCookie('statutco', statutco);
     setCookie('nomprenom', nomprenom);
     setCookie('moncompte', moncompte);
+    setCookie('spprcompte', spprcompte);
 }

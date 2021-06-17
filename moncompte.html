@@ -8,7 +8,6 @@
         <script src="updatePage.js"></script>
         <script src="xmlhttprequest.js"></script>
         <script src="serveur/cobd.js"></script>
-        <script src="co.js"></script>
         <script src="moncompte.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <title>Mon compte</title>
@@ -49,11 +48,74 @@
         </header>
 
         <div class="page">
+            <div class="center">
+                <h1>Modifier un compte</h1>
 
+                <h3>Informations personnelles</h2>
+
+                <table class="creercompte">
+                    <tr>
+                        <td><h4>Nom de famille :</h4></td>
+                        <td><input type="text" id="nom"></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Prénom :</label></h4></td>
+                        <td><input type="text" id="prenom"></td>
+                    </tr>
+                </table>
+                <h4 id="utilincorrect" class="red"></h4>
+                <button id="changeutil" onclick="changeUtil();">Changer les informations personnelles</button>
+                
+
+                <h3>E-mail</h3>
+                <table class="creercompte">
+                    <tr>
+                        <td><h4>E-Mail :</h4></td>
+                        <td><input type="email" id="mail1"></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Confirmation de l'E-Mail :</h4></td>
+                        <td><input type="email" id="mail2"></td>
+                    </tr>
+                </table>
+                <h4 id="mailincorrect"></h4>
+                <button id="changemail" onclick="changeMail();">Changer l'adresse mail</button>
+
+                <div style="height: 50px;"></div>
+
+                <table class="creercompte"><tr><td><button id="changemdp" onclick="window.location.href = 'mdpoublie.html'; setCookie('moncompte', 'true');">Changer le mot de passe</button></td></tr></table>
+
+                <div style="height: 50px;"></div>
+
+                <h3>Changer la question secrète</h3>
+                <h4>Quel est le nom de jeune fille de votre mère ?</h4>
+                <table class="creercompte">
+                    <tr>
+                        <td><h4>Ancienne question secrète :</h4></td>
+                        <td><input type="text" id="qsecrete1"></td>
+                    </tr>
+                    <tr>
+                        <td><h4>Nouvelle question secrète :</h4></td>
+                        <td><input type="text" id="qsecrete2"></td>
+                    </tr>
+                </table>
+                <h4 id="qsecreteincorrect"></h4>
+                <button id="changeqsecrete" onclick="changeQSecrete();">Changer la question secrète</button>
+
+                <div style="height: 50px;"></div>
+
+                <table class="creercompte">
+                    <tr>
+                        <td><button id="spprcompte" onclick="$('#spprcompteconf').css('visibility', 'visible');">Supprimer le compte utilisateur</button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="spprcompteconf" onclick="spprCompte();" style="visibility: hidden; color: rgb(253, 114, 114);">Êtes vous sûr de vouloir supprimer votre compte?</button></td>
+                    </tr>
+                </table>
+                <h4 id="spprcompteincorrect"></h4>
+            </div>
+
+            <div style="height: 150px;"></div>
         </div>
-
-        <footer>
-
-        </footer>
     </body>
 </html>

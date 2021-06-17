@@ -4,11 +4,15 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
+        <script src="nouscontacter.js"></script>
+        <script src="xmlhttprequest.js"></script>
+        <script src="updatePage.js"></script>
+        <script src="cookie.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <title>Nous contacter</title>
     </head>
 
-    <body>
+    <body onload="update();">
         <header>
             <table>
                 <tr>
@@ -67,7 +71,7 @@
                     </tr>
                 </table>
 
-                <button id="envoyer">Envoyer</button>
+                <button id="envoyer" onclick="getMessage();">Envoyer</button>
 
                 <div style="height: 150px;"></div>
             </div>
