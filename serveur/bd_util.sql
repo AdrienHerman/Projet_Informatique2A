@@ -19,4 +19,4 @@ CREATE TABLE Personne(
 
 INSERT INTO Personne(nom, prenom, mail, mdp, qsecrete)
 VALUES
-("Herman", "Adrien", "herman1.adrien@gmail.com", "ivgc", "Rolland");
+("root", "root", "projet2a.informatique@gmail.com", "puarrigfxnxbcwc", "root");

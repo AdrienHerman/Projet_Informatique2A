@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>20</y>
+      <w>360</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>main.html
+--
+Page d'accueil du site web.
+Affiche les trois parkings les plus proches de l'utilisateur
+(ainsi que ses préférences de parkings avec une carte
+OpenStreetMap qui montre l'emplacement de l'utilisateur
+et des parkings)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>20</y>
+      <w>320</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>affpark.html
+--
+Affiche tous les parking du lot de données reçus
+de l'API et montre leur emplacements sur une
+carte OpenStreetMap avec également la position
+de l'utilisateur.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>140</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>apropos.html
+--
+Page qui affiche les informations du site web.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>140</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>connexion.html
+--
+Page de connexion à un compte utilisateur.
+Permet la récupération d'un compte en cas
+d'oubli de mot de passe.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>140</y>
+      <w>310</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>creer_compte.html
+--
+Page permettant de créer un compte utilisateur.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>240</y>
+      <w>230</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>mdpoublie.html
+--
+Page parmettant la récupération du
+compte utilisateur en cas d'oubli
+de mot de passe.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>240</y>
+      <w>290</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>moncompte.html
+--
+Page permettant de changer les informations
+personnelle / l'e-mail / le mot de passe / la
+question secrète d'un compte utilisateur.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>240</y>
+      <w>280</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>nous_contacter.html
+--
+Page de contact du / des webmaster(s) du
+site en cas de problème / remarque.</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

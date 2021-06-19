@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>30</y>
+      <w>280</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>serveur/cobd.js
+--
+Se charge de toutes les fonctions qui
+doivent se connecter à la base de données.
+--
+connexionCompteUtil()
+verifierQSecrete()
+changerMdp()
+verifierExistanceUtil(mail)
+changeUtilBd(nom, prenom, mail)
+changeMailBd(ancienmail, nouveaumail)
+changeQSecreteBd(mail, qsecrete)
+spprCompte()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>30</y>
+      <w>300</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>co.js
+--
+Permet la connexion à un compte utilisateur
+en cryptant le mot de passe par la méthode de
+Vigenère.
+--
+connexion()
+charToAscii(char)
+asciiToChar(ascii)
+genererVigenere()
+mdpCrypte(mdp)
+mdpDecrypte()
+mdpOublie()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>30</y>
+      <w>300</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>coapi.js
+--
+Permet la connexion à l'API OpenData de Lille,
+de récupérer les données et de les parser.
+--
+coOpenData(print, calcdist, url)
+printData()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>240</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>cookie.js
+--
+Permet la gestion des cookies de session.
+--
+setCookie(cname, cvalue, exdays)
+getCookie(cname)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>240</y>
+      <w>280</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>creercompte.js
+--
+Permet la création d'un compte utilisateur.
+--
+recupInfoCompte()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>240</y>
+      <w>300</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>localisation.js
+--
+Permet la géolocalisation de l'utilisateur,
+de calculer une distance en km à partir de
+coordonnées GPS, de trouver les parkings les
+plus proches et d'afficher un marqueur sur la
+char OpenStreetMap.
+--
+// Fonction exécutée en cas de succès de géolocalisation
+success(pos)
+// Fonction exécutée en cas d'échec de géolocalisation
+error(err)
+meLocaliser()
+convertRad(input)
+distance(lat1, lon1, lat2, lon2, unit)
+affParkPlusProche()
+addMarkerLonLat(lon, lat, currentpos)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>150</y>
+      <w>310</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>map.js
+--
+Permet l'initialisation de la carte OpenStreetMap.
+--
+init()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>340</y>
+      <w>300</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>moncompte.js
+--
+Permet la gestion de la page moncompte.html
+--
+verifLoad()
+changeUtil()
+changeMail()
+changeQSecrete()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>340</y>
+      <w>260</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>nouscontacter.js
+--
+Permet la gestion de la page
+noucontacter.html
+--
+getMessage()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>470</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>OpenLayers.js
+--
+OpenLayers Map Viewer Library</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>470</y>
+      <w>310</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>updatePage.js
+--
+Permet la mise à jour des cookies de session
+et de la mise à jour des éléments des pages.
+--
+update(mdpOublie, geolocaliser)
+updateCookie(mail, mdp, statutco, nomprenom,
+moncompte, spprcompte)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>480</y>
+      <w>340</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>xmlhttprequests.js
+--
+Permet l'instanciation du bon objet XMLHttpRequests
+en fonction du navigateur utilisé.
+--
+getXMLHttpRequest()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>400</x>
+      <y>0</y>
+      <w>140</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Fichiers Javascript</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,7 +1,7 @@
 var mail = '';
 var mdp = '';
 var statut_co = false;
-var cle = 'PROJETINFO';
+var cle = 'PROJET';
 var array = genererVigenere();
 
 function connexion() {
@@ -57,17 +57,20 @@ function mdpCrypte(mdp) {
     // Crypter un mot de passe par la méthode de Vigenère
     var mdp_crypte = '';
     var j = 0;
+    var length_cle = cle.length;
     var a = 0;
     var o = 0;
 
     for (var i=0; i<mdp.length; i++) {
-        if (j == cle.lenght) { j = 0; }                                                     // Parcourt de la clé
+        if (j >= length_cle) {                                                              // Parcourt de la clé
+            j = 0;
+        }
 
         if (charToAscii(mdp.charAt(i)) == 32) {                                             // Ajout d'un espace
             mdp_crypte += '';
-        } else if (charToAscii(mdp.charAt(i)) >= 97 && charToAscii(mdp.charAt(i)) <= 132) { // Minuscules
+        } else if (charToAscii(mdp.charAt(i)) >= 97 && charToAscii(mdp.charAt(i)) <= 122) { // Minuscules
             a = charToAscii(cle.charAt(j)) - 65;
-            o = charToAscii(mdp.charAt(i)) - 32 - 65;
+            o = charToAscii(mdp.charAt(i)) - 97;    //-32-65
             mdp_crypte += asciiToChar(charToAscii(array[a][o]) + 32);
             j++;
         } else if (charToAscii(mdp.charAt(i)) >= 65 && charToAscii(mdp.charAt(i)) <= 90) {   // Majuscules

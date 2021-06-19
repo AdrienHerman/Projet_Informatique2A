@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>400</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Fichiers PHP</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>30</y>
+      <w>240</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>serveur/changermail.php
+--
+Permet de changer l'adresse mail de
+l'utilisateur dans la base de données.
+--
+INPUT
+GET: nouveaumail
+GET: ancienmail</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>30</y>
+      <w>240</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>serveur/changermdp
+--
+Permet de changer le mot de passe
+utilisateur dans la base de données.
+--
+INPUT
+GET: mdp
+GET: mail</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>30</y>
+      <w>240</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>serveur/changerqsecrete.php
+--
+Changer la question secrète de
+l'utilisateur dans la base de données.
+--
+INPUT
+GET: qsecrete
+GET: mail</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>160</y>
+      <w>260</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>serveur/changerutil.php
+--
+Permet de changer le nom et le prénom
+de l'utilisateur dans la base de données.
+--
+GET: nom
+GET: prenom
+GET: mail</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>160</y>
+      <w>280</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>serveur/cobd_mdpoublier.php
+--
+Permet la vérification de la question secrete
+de l'utilisateur pour ensuite changer le mot
+de passe en cas de mot de passe oublié.
+--
+INPUT
+GET: mail
+GET: qsecrete
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>160</y>
+      <w>250</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>serveur/cobd.php
+--
+Permet de vérifier que le mot de passe
+et l'e-mail entré sont valides pour
+autoriser la connexion utilisatreur sur
+le site web.
+--
+GET: mail
+GET: mdp</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>310</y>
+      <w>270</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>serveur/creationUtil.php
+--
+Permet la création d'un compte utilisateur
+sur la base de données.
+--
+INPUT
+GET: mail
+GET: mdp
+GET: nom
+GET: prenom
+GET: qsecrete</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>310</y>
+      <w>270</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>serveur/getUser.php
+--
+Permet de récupérer le nom et le prénom
+de l'utilisateur dans la base de données.
+--
+INPUT
+GET: mail</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>310</y>
+      <w>230</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>sendmail.php
+--
+Permet l'envoi de mail
+(pour la page nous_contacter.html).
+--
+INPUT
+GET: subject
+GET: message
+GET: email</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>490</y>
+      <w>300</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>serveur/spprcompte.php
+--
+Permet la suppression d'un compte utilisateur
+dans la base de données.
+--
+INPUT
+GET: mail</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>490</y>
+      <w>250</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>verifExistUtil.php
+--
+Vérifier si un compte utilisateur existe.
+--
+INPUT
+GET: mail</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
