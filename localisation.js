@@ -1,6 +1,6 @@
 var maLatitude = .0;
 var maLongitude = .0;
-var pointer = false;
+var pointer = true;
 
 var options = {
     enableHighAccuracy: true,
@@ -13,19 +13,8 @@ function success(pos) {
     maLongitude = pos.coords.longitude;
 
     if (pointer) {
-        var lonLat = new OpenLayers.LonLat(maLongitude, maLatitude).transform(
-        new OpenLayers.Projection("EPSG:4326"),
-        map.getProjectionObject()
-        );
-
-        var size = new OpenLayers.Size(21, 40);
-        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-        var icon = new OpenLayers.Icon('http://localhost/img/marker2.png', size, offset);
-
-        var markers = new OpenLayers.Layer.Markers("Markers");
-        map.addLayer(markers);
-        
-        markers.addMarker(new OpenLayers.Marker(lonLat, icon));
+        L.marker([maLatitude, maLongitude], {icon: blueIcon}).addTo(mymap)
+            .bindPopup("<b>Votre position</b>").openPopup();
         pointer = false;
     }
 }
@@ -88,25 +77,4 @@ function affParkPlusProche() {
     }
 
     $('#parkplusproche').html(command);
-}
-
-function addMarkerLonLat(lon=.0, lat=.0, currentpos=false) {
-    if (currentpos) {
-        meLocaliser();
-        pointer = true;
-    } else {
-        var lonLat = new OpenLayers.LonLat(lon, lat).transform(
-        new OpenLayers.Projection("EPSG:4326"),
-        map.getProjectionObject()
-        );
-
-        var size = new OpenLayers.Size(21, 40);
-        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-        var icon = new OpenLayers.Icon('http://localhost/img/marker1.png', size, offset);
-
-        var markers = new OpenLayers.Layer.Markers("Markers");
-        map.addLayer(markers);
-    
-        markers.addMarker(new OpenLayers.Marker(lonLat, icon));
-    }
 }

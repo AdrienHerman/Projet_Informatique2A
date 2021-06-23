@@ -9,7 +9,7 @@ function connexion() {
     mail = $('#mail').val();
     mdp = $('#mdp').val();
 
-    if (mail != '' && mdp != '') {
+    if (verifMailValide(mail) && mdp != '') {
         // Cryptage du mot de passe
         mdp = mdpCrypte(mdp);
         // Remarque: Ici le cryptage n'a aucun intérêt puisque la clé est cachée dans le code....
@@ -20,7 +20,9 @@ function connexion() {
 
         connexionCompteUtil();
     } else {
-        alert('Veuillez entrer un login et un mot de passe correct!');
+        $('#erreurmdp').html('Veuillez entrer un email et un mot de passe correct!');
+        $('#mdp').css('border', '1px solid rgb(253, 114, 114)');
+        $('#mail').css('border', '1px solid rgb(253, 114, 114)');
     }
 }
 
@@ -131,9 +133,26 @@ function mdpDecrypte() {
 function mdpOublie() {
     var mail = $('#mail').val();
 
-    if (mail != '') {
+    if (verifMailValide(mail)) {
         setCookie('mail', mail);
     }
 
     window.location.href = 'mdpoublie.html';
+}
+
+function verifMailValide(mail) {
+    var valide = true;
+
+    mail = mail.split('@');
+
+    if (mail.length == 2) {
+        mail = mail[1].split('.');
+        if (!(mail.length == 2 && mail[0] != '' && mail[1] != '')) {
+            valide = false;
+        }
+    } else {
+        valide = false;
+    }
+
+    return valide;
 }

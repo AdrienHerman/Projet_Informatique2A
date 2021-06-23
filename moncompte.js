@@ -52,7 +52,7 @@ function changeMail() {
     var mail1 = $('#mail1').val();
     var mail2 = $('#mail2').val();
 
-    if (mail1 == mail2 && mail1 != '' && mail != '') {
+    if (mail1 == mail2 && verifMailValide(mail1)) {
         changeMailBd(mail, mail1);
     } else if (mail == '') {
         $('#mail1').css('border', '1px solid rgb(253, 114, 114)');
@@ -70,7 +70,7 @@ function changeQSecrete() {
     var qsecrete1 = $('#qsecrete1').val();
     var qsecrete2 = $('#qsecrete2').val();
 
-    if (qsecrete1 == qsecrete2 && qsecrete1 != '' && mail != '') {
+    if (qsecrete1 == qsecrete2 && qsecrete1 != '' && verifMailValide(mail)) {
         changeQSecreteBd(mail, qsecrete1);
     } else if (mail == '') {
         $('#qsecrete1').css('border', '1px solid rgb(253, 114, 114)');

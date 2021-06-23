@@ -41,13 +41,17 @@ function printData() {
         for (var i=0; i<etat.length; i++) {
             if (etat[i] == 'FERME' || etat[i] == 'COMPLET') {
                 command += '<tr><td class="rouge">' + etat[i] + '</td><td>' + ville[i] + '</td><td>' + dispo[i] + ' / ' + max[i] + '</td><td>' + adresse[i] + '</td></tr>';
+                L.marker([coordinates[i][1], coordinates[i][0]], {icon: redIcon}).addTo(mymap)
+                    .bindPopup("<b>Parking</b><br>" + adresse[i] + ' ' + ville[i] + '<br>' + dispo[i] + ' / ' + max[i] + '<br><div class="rouge">' + etat[i] + '</div>').openPopup();
             } else if (etat[i] == 'OUVERT') {
                 command += '<tr><td class="vert">' + etat[i] + '</td><td>' + ville[i] + '</td><td>' + dispo[i] + ' / ' + max[i] + '</td><td>' + adresse[i] + '</td></tr>';
+                L.marker([coordinates[i][1], coordinates[i][0]], {icon: redIcon}).addTo(mymap)
+                    .bindPopup("<b>Parking</b><br>" + adresse[i] + ' ' + ville[i] + '<br>' + dispo[i] + ' / ' + max[i] + '<br><div class="vert">' + etat[i] + '</div>').openPopup();
             } else {
                 command += '<tr><td>' + etat[i] + '</td><td>' + ville[i] + '</td><td>' + dispo[i] + ' / ' + max[i] + '</td><td>' + adresse[i] + '</td></tr>';
+                L.marker([coordinates[i][1], coordinates[i][0]], {icon: redIcon}).addTo(mymap)
+                    .bindPopup("<b>Parking</b><br>" + adresse[i] + ' ' + ville[i] + '<br>' + dispo[i] + ' / ' + max[i] + '<br>' + etat[i]).openPopup();
             }
-
-            addMarkerLonLat(coordinates[i][0], coordinates[i][1]);
         }
         
         $('#heureactuh4').html(heureactu[0] + 'h' + heureactu[1]);
