@@ -79,7 +79,7 @@ Page permettant de créer un compte utilisateur.</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>230</x>
       <y>240</y>
       <w>230</w>
       <h>80</h>
@@ -94,7 +94,7 @@ de mot de passe.</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>250</x>
+      <x>480</x>
       <y>240</y>
       <w>290</w>
       <h>80</h>
@@ -104,20 +104,6 @@ de mot de passe.</panel_attributes>
 Page permettant de changer les informations
 personnelle / l'e-mail / le mot de passe / la
 question secrète d'un compte utilisateur.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>560</x>
-      <y>240</y>
-      <w>280</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>nous_contacter.html
---
-Page de contact du / des webmaster(s) du
-site en cas de problème / remarque.</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

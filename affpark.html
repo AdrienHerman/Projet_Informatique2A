@@ -9,11 +9,7 @@
 
         <script src="cookie.js"></script>
         <script src="updatePage.js"></script>
-        <script src="xmlhttprequest.js"></script>
-        <script src="serveur/cobd.js"></script>
-        <script src="co.js"></script>
         <script src="coapi.js"></script>
-        <script src="map.js"></script>
         <script src="localisation.js"></script>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -48,7 +44,7 @@
                     <tr>
                         <td><a href="main.html"><h4>Accueil</h4></a></td>
                         <td><a href="affpark.html"><h4>Afficher tous les parkings</h4></a></td>
-                        <td><a href="nous_contacter.html"><h4>Nous contacter</h4></a></td>
+                        <td><a href="nous_contacter.php"><h4>Nous contacter</h4></a></td>
                         <td><a href="apropos.html"><h4>À Propos</h4></a></td>
                         <td><a href="creer_compte.html"><h4>Créer un compte</h4></a></td>
                         <td><a href="moncompte.html"><h4>Mon compte</h4></a></td>
@@ -88,7 +84,7 @@
             <script>update();</script>
 
             <script>
-                var mymap = L.map('map').setView([50.65623, 3.124059], 11);
+                var mymap = L.map('map').setView([50.669288, 3.146388], 10);
             
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                     maxZoom: 18,
@@ -130,7 +126,7 @@
             
                 mymap.on('click', onMapClick);
 
-                coOpenData(true, false);
+                coOpenData(true, false, 'data.json');
             </script>
         </div>
     </body>

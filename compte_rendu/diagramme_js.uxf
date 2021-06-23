@@ -100,9 +100,9 @@ recupInfoCompte()</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>600</x>
-      <y>240</y>
+      <y>280</y>
       <w>300</w>
-      <h>220</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>localisation.js
 --
@@ -119,29 +119,13 @@ error(err)
 meLocaliser()
 convertRad(input)
 distance(lat1, lon1, lat2, lon2, unit)
-affParkPlusProche()
-addMarkerLonLat(lon, lat, currentpos)</panel_attributes>
+affParkPlusProche()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>620</x>
-      <y>150</y>
-      <w>310</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>map.js
---
-Permet l'initialisation de la carte OpenStreetMap.
---
-init()</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
+      <x>140</x>
       <y>340</y>
       <w>300</w>
       <h>110</h>
@@ -159,37 +143,8 @@ changeQSecrete()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>340</y>
-      <w>260</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>nouscontacter.js
---
-Permet la gestion de la page
-noucontacter.html
---
-getMessage()</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
-      <y>470</y>
-      <w>210</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>OpenLayers.js
---
-OpenLayers Map Viewer Library</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>230</x>
-      <y>470</y>
+      <x>620</x>
+      <y>150</y>
       <w>310</w>
       <h>110</h>
     </coordinates>
@@ -206,8 +161,8 @@ moncompte, spprcompte)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>480</y>
+      <x>120</x>
+      <y>470</y>
       <w>340</w>
       <h>80</h>
     </coordinates>
