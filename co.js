@@ -147,8 +147,12 @@ function verifMailValide(mail) {
 
     if (mail.length == 2) {
         mail = mail[1].split('.');
-        if (!(mail.length == 2 && mail[0] != '' && mail[1] != '')) {
-            valide = false;
+        if (!(mail.length >= 2)) {
+            for (var i=0; i<mail.length; i++) {
+                if (mail[i] == '') {
+                    valide = false;
+                }
+            }
         }
     } else {
         valide = false;

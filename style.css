@@ -144,6 +144,11 @@ body {
     visibility: hidden;
 }
 
+#message {
+    width: 500px;
+    height: 300px;
+}
+
 /* Propriétés du pied de page */
 header{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

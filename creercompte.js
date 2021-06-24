@@ -10,7 +10,7 @@ function recupInfoCompte() {
     mail = $('#mail').val();
     mdp1 = $('#mdp1').val();
     mdp2 = $('#mdp2').val();
-    qsecrete = $('#mdp').val();
+    qsecrete = $('#qsecrete').val();
 
     if (nom != '' && prenom != '' && verifMailValide(mail) && mdp1 == mdp2 && mdp1 != '' && mdp1.length <= 50 && qsecrete != '') {
         mdp = mdpCrypte(mdp1);

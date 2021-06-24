@@ -1,6 +1,6 @@
 <?php
-define("LOGIN", "root");
-define("PASSWORD", "AHhook1@@86160");
+define("LOGIN", "VotreLogin");
+define("PASSWORD", "VotreMotDePasse");
 define("SERVER", "localhost");
 define("BASE", "Projet2A_Utilisateurs");
 
